@@ -226,7 +226,7 @@ bool server_init(struct sway_server *server) {
 			wlr_renderer_get_drm_fd(renderer));
 	}
 
-	server->compositor = wlr_compositor_create(server->wl_display, 6, NULL);
+	server->compositor = wlr_compositor_create(server->wl_display, 6);
 
 	wlr_subcompositor_create(server->wl_display);
 
