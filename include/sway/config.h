@@ -266,6 +266,16 @@ enum render_bit_depth {
 };
 
 /**
+ * Stores size of gaps for each side
+ */
+struct side_gaps {
+	int top;
+	int right;
+	int bottom;
+	int left;
+};
+
+/**
  * Size and position configuration for a particular output.
  *
  * This is set via the `output` command.
@@ -289,6 +299,8 @@ struct output_config {
 	bool set_color_transform;
 	struct wlr_color_transform *color_transform;
 
+	struct side_gaps margin;
+
 	char *background;
 	char *background_option;
 	char *background_fallback;
@@ -300,16 +312,6 @@ struct output_config {
 struct matched_output_config {
 	struct sway_output *output;
 	struct output_config *config;
-};
-
-/**
- * Stores size of gaps for each side
- */
-struct side_gaps {
-	int top;
-	int right;
-	int bottom;
-	int left;
 };
 
 enum smart_gaps_mode {

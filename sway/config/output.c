@@ -79,6 +79,7 @@ struct output_config *new_output_config(const char *name) {
 	oc->set_color_transform = false;
 	oc->color_transform = NULL;
 	oc->power = -1;
+	oc->margin.top = -1;
 	return oc;
 }
 
@@ -215,6 +216,9 @@ static void merge_output_config(struct output_config *dst, struct output_config 
 	}
 	if (src->power != -1) {
 		dst->power = src->power;
+	}
+	if (src->margin.top != -1) {
+		dst->margin = src->margin;
 	}
 }
 
