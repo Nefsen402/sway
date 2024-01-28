@@ -4,7 +4,6 @@
 #include <math.h>
 #include <assert.h>
 #include <wlr/config.h>
-#include <wlr/backend/libinput.h>
 #include <wlr/types/wlr_cursor.h>
 #include <wlr/types/wlr_keyboard_group.h>
 #include <wlr/types/wlr_virtual_keyboard_v1.h>
@@ -428,8 +427,9 @@ void handle_virtual_pointer(struct wl_listener *listener, void *data) {
 	seat_add_device(seat, input_device);
 
 	if (event->suggested_output) {
-		wlr_cursor_map_input_to_output(seat->cursor->cursor, device,
-			event->suggested_output);
+		// CURSOR TODO
+		//wlr_cursor_map_input_to_output(seat->cursor->cursor, device,
+		//	event->suggested_output);
 	}
 }
 
